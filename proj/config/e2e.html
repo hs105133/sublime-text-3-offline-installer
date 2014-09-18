@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app='E2EReport' ng-controller='MainController'>
+  <head>
+    <title>{{title}}</title>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700' rel='stylesheet' type='text/css'>
+     <script language="javascript">
+        var app = angular.module('E2EReport', []);
+        app.controller('MainController', function($scope, $http) {
+          
+          var makeDate = function(str) {
+            return str;
+          };
+
+          $scope.report = <%= report %>;
+          $scope.start = makeDate($scope.report.stats.start);
+          $scope.end = makeDate($scope.report.stats.end);
+
+        });
+     </script>
+    <style type="text/css">
+      body {
+        background:rgba(200,200,200,.2);
+        color:#555;
+        padding:20px;
+        margin:0;
+        line-height:160%;
+        font-family: 'Open Sans', sans-serif;
+        font-size:.8em;
+      }
+
+      div[ng-cloak] { 
+        display: none;
+      }
+
+      h3 {
+        margin:-20px -20px 0 -20px;
+        background: rgba(0,0,0,.2);
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+      
+      div.tests {
+        padding: 20px;
+        margin: 15px 0;
+        clear: both;
+      }
+      
+      div.tests ol {
+        padding: 5px;
+      }
+
+      div.tests ol li {
+        padding: 10px 5px 5px;
+        border-bottom: 1px dotted #CCC;
+      }
+
+      #report-headings {
+        margin: 15px 0;
+      }
+
+      #report-headings > div {
+        display: inline-block;
+        margin: 0 10px;
+        width: 15%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding:10px;
+      }
+
+      #report-headings > div:first-child {
+        margin-left: 0;
+      }
+
+      #report-headings > div:last-child {
+        margin-left: 0;
+      }
+
+      #report-headings > div > h4 {
+        display: block;
+        margin:-10px -10px 10px;
+        padding:5px 10px;
+        background: rgba(0,0,0,.2);
+      }
+
+      .all-tests {
+        background: #FFF;
+      }
+
+      .tests-passed {
+        background: rgba(0,255,50,.1);
+        color: #006600;
+      }
+
+      .tests-failed {
+        background: rgba(255,0,0,.1);
+        color: #660000;
+      }
+
+      .tests-pending {
+        background: rgba(255,255,0,.1);
+        color: #999900;
+      }
+
+      .number {
+        font-size: 48px;
+        margin: 20px 0;
+        display: block;
+      }
+
+      #dates span {
+        font-size: 0.8em;
+        font-weight: light;
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>End-to-end Tests Report</h1>
+    <div ng-cloak>
+      <div id="report-headings">
+        <div class="all-tests"><h4>Total Tests</h4><span class="number">{{report.stats.tests}}</span></div>
+        <div class="tests-passed"><h4>Passed: </h4><span class="number">{{report.stats.passes}}</span></div>
+        <div class="tests-failed"><h4>Failed: </h4><span class="number">{{report.stats.failures}}</span></div>
+        <div class="tests-pending"><h4>Pending: </h4><span class="number">{{report.stats.pending}}</span></div>
+        <div class="all-tests"><h4>Duration: </h4><span class="number">{{report.stats.duration}}ms</span></div>
+        <div class="all-tests" id="dates">
+          <h4>Test Time</h4>
+          <span><strong>Start:</h4> {{start}}</span>
+          <span><strong>End:</strong> {{end}}</span>
+        </div>
+
+      </div>
+      
+      <div class="tests all-tests">
+        <h3 ng-click="allVisible = !allVisible">All Tests</h3>
+        <ol ng-show="allVisible">
+          <li ng-repeat="test in report.tests">{{test.fullTitle}}</li>
+        </ol>
+      </div>
+
+      <div class="tests tests-passed">
+        <h3 ng-click="passVisible = !passVisible">Passed Tests ({{report.passes.length}} / {{report.stats.tests}})</h3>
+        <ol ng-show="passVisible">
+          <li ng-repeat="test in report.passes">{{test.fullTitle}} <em>{{test.duration}}ms</em></li>
+        </ol>
+      </div>
+
+      <div class="tests tests-failed">
+        <h3 ng-click="failVisible = !failVisible">Failed Tests ({{report.failures.length}} / {{report.stats.tests}})</h3>
+        <ol ng-show="failVisible">
+          <li ng-repeat="test in report.failures">{{test.fullTitle}} <em>{{test.duration}}ms</em></li>
+        </ol>
+      </div>
+
+    </div>
+    
+      
+  </body>
+
+</html>

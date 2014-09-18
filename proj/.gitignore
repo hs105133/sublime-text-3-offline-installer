@@ -1,0 +1,11 @@
+*.sw*
+*~
+build/
+bin/
+node_modules/
+vendor/
+selenium/
+.svn
+docs/
+src/assets/aamc-ui.css
+coverage/
