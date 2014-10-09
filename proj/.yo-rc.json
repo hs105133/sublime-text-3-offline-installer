@@ -1,7 +1,0 @@
-{
-  "generator-ngaamc": {
-    "appName": "SMDEP",
-    "appCode": "AAMC",
-    "contextRoot": "/SMDEP/"
-  }
-}
