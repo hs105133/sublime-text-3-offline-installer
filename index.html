@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="Title%20Page_files/bootstrap.css" rel="stylesheet">
+    <link href="Title%20Page_files/main.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-default topbar" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-topbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="Title%20Page_files/icon.png1" class="icon-header">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-topbar-collapse">
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organization <b class="caret"></b></a>
+                        <ul class="dropdown-menu submenu list-inline organization">
+                            <li><a href="#">Organization</a>
+                            </li>
+                            <li><a href="#">Office Locations</a>
+                            </li>
+                            <li><a href="#">Service Areas</a>
+                            </li>
+                            <li><a href="#">Holiday List</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Users</a>
+                    </li>
+                    <li><a href="#">Appt Type</a>
+                    </li>
+                    <li><a href="#">Notification</a>
+                    </li>
+                    <li><a href="#">Orders</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu submenu list-inline notes">
+                            <li><a href="#">Notes</a>
+                            </li>
+                            <li><a href="#">Flowsheets</a>
+                            </li>
+                            <li><a href="#">Charges</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Reminder</a>
+                    </li>
+                    <li><a href="#">Patients</a>
+                    </li>
+                    <li><a href="#">CDS Rules</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="userProfile" href="#/myprofile" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="uname">hemant</span>
+                            <span>
+                                <img src="Title%20Page_files/photo.jpg" class="avatar img-circle">
+                            </span> 
+                            <b class="caret hidden-sm-only"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#/edit-profile">
+                                    <span>Edit Profile</span> <i class="pull-right fa fa-pencil"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="badge bg-danger pull-right">3</span>Notifications</a>
+                            </li>
+                            <li>
+                                <a href="http://hkdemos.herokuapp.com/docs.html">
+                                    <span>Linkedin</span> <i class="pull-right fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a ng-click="logout()" href="">
+                                    <span>Logout</span> <i class="pull-right fa fa-power-off"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+
+    </nav>
+
+  <div id="site-wrapper">
+
+        <div id="site-canvas">
+
+            
+
+            <div id="site-menu">
+<ul id="sidebar">
+
+    <li class="hasChild">
+        <a href="#">
+            <i class="fa fa-dashboard"></i> 
+            <span>Organization</span>
+        </a>
+        <ul class="acc-menu">
+    <li ng-class="{active: $path() == '/create-cover'}">
+        <a href="#/create-cover"><i class="fa fa-plus-circle"></i> <span>fa fa-dashboard</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Office Locations</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Service Areas</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Holiday List</span></a>
+    </li>
+        </ul>
+    </li>
+    <li class="hasChild">
+        <a href="#">
+            <span>Organization Test</span>
+        </a>
+        <ul class="acc-menu">
+    <li ng-class="{active: $path() == '/create-cover'}">
+        <a href="#/create-cover"> <span>fa fa-dashboard</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"> <span>Office Locations</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"> <span>Service Areas</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"><span>Holiday List</span></a>
+    </li>
+        </ul>
+    </li>
+
+    <li ng-class="{active: $path() == '/users'}">
+        <a href="#/users"><i class="fa fa-users"></i> <span>Users</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/myprofile'}">
+        <a href="#/myprofile"><i class="fa fa-user"></i> <span>Appt Type</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/edit-profile'}">
+        <a href="#/edit-profile"><i class="fa fa-pencil"></i> <span>Notification</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/manage-covers'}">
+        <a href="#/manage-covers"><i class="glyphicon glyphicon-edit"></i> <span>Orders</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Notes</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Flowsheets</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Charges</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Reminder</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><span>Patients</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><span>CDS Rules</span></a>
+    </li>
+</ul>
+             </div>
+
+            
+
+    <div id="page-content-wrapper">
+       <div class="btnBaner ng-scope">
+         <i class="fa fa-bars toggle-nav"></i>
+        <button ng-click="handleSave()" ng-show="savePatient" class="btn bannerButton"><b><i class="ng-binding">Save</i></b>
+        </button>
+        <button ng-click="handleCancel()" ng-hide="patientList" class="btn bannerButton"><b><i class="ng-binding">Cancel</i></b>
+        </button>
+    </div>
+
+    <div id="page-wrapper">
+        
+        <div class="panel panel-info" id="organization">
+            <div class="panel-heading">
+
+               
+                <h3 class="panel-title text-center">Organization</h3>
+            </div>
+            <div class="panel-body">
+
+                <form action="" method="POST" class="form-horizontal" role="form">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Org. Name:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputEmail3" placeholder="Email" type="email">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Address Line 1:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Address line 1" type="password">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Adress Line 2:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">City:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">State:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Zip:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Phone 1:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                                <div class="col-sm-1 star">*</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Phone 2:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Fax:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">NPI #:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">CLIA #:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">EIN #:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Medicare:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Medicaid:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">CHAMPUS:</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-4 control-label">Timezone:</label>
+                                <div class="col-sm-7">
+                                    <select name="" id="input" class="form-control" required="required">
+                                        <option selected="selected" value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-7">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Daylight Savings Time is observed
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+       </div><!-- #site-canvas -->
+
+    </div><!-- #site-wrapper> -->
+
+    <!-- jQuery -->
+    <script src="Title%20Page_files/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="Title%20Page_files/bootstrap.js"></script>
+
+
+<script>
+function toggleNav() {
+    if ($('#site-wrapper').hasClass('show-nav')) {
+        // Do things on Nav Close
+        $('#site-wrapper').removeClass('show-nav');
+    } else {
+        // Do things on Nav Open
+        $('#site-wrapper').addClass('show-nav');
+    }
+
+    //$('#site-wrapper').toggleClass('show-nav');
+}
+
+  $('.toggle-nav').click(function() {
+        // Calling a function in case you want to expand upon this.
+        toggleNav();
+    });;
+</script>
+</body></html>
