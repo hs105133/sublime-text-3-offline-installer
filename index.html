@@ -1,389 +1,483 @@
 <!DOCTYPE html>
-<html lang=""><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+<html><head lang="en">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Management System</title>
+    <link rel="shortcut icon" href="http://hemsingh.herokuapp.com/src/img/favicon.ico">
+    <!-- build:css css/app-name.min.css -->
+    <link rel="stylesheet" href="index_files/ng-grid.css">
+    <link rel="stylesheet" href="index_files/fullcalendar.css">
+    <link rel="stylesheet" href="index_files/toastr.css">
+    <link rel="stylesheet" href="index_files/angular-ui.css">
+    <link rel="stylesheet" href="index_files/styles.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="Title%20Page_files/bootstrap.css" rel="stylesheet">
-    <link href="Title%20Page_files/main.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/sidebar.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="index_files/main.css">
+    <link rel="stylesheet" href="index_files/sidebar.css">
+    <link rel="stylesheet" href="index_files/forms.css">
+    <link rel="stylesheet" href="index_files/animation.css">
+    <link rel="stylesheet" href="index_files/media-queries.css">
+    <!--     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/forms.css"> -->
+    <!-- endbuild -->
+<script src="index_files/main.js" data-requiremodule="main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/practiceApp.js" data-requiremodule="practiceApp" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/locale.js" data-requiremodule="locale" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/routeResolver.js" data-requiremodule="service/routeResolver" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/LoginService.js" data-requiremodule="service/LoginService" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/mainController.js" data-requiremodule="controller/mainController" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/calendar.js" data-requiremodule="calendar" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/mainPageController.js" data-requiremodule="js/controller/mainPageController.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/organizationController.js" data-requiremodule="js/controller/organizationController.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/organizationService.js" data-requiremodule="js/service/organizationService.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/usersController.js" data-requiremodule="js/controller/usersController.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="index_files/addUserController.js" data-requiremodule="js/controller/addUserController.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script></head>
 
-<body>
-    
-    <nav class="navbar navbar-default topbar" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-topbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img src="Title%20Page_files/icon.png1" class="icon-header">
+<body class="ng-scope" ng-controller="mainController">
+    <!-- ngIf: isAuthenticated() --><!-- ngInclude: 'templates/navbar.html' --><div class="ng-scope" ng-if="isAuthenticated()" ng-include="'templates/navbar.html'"><nav class="navbar navbar-default topbar navbar-fixed-top ng-scope" role="navigation">
+    <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="index_files/icon.png" class="icon-header">
+            </a>
+        <ul class="nav navbar-nav pull-right ng-scope">
+            <li class="dropdown">
+                <a id="userProfile" href="#/myprofile" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="uname hidden-xs ng-binding">hemant</span>
+                    <span>
+                        <img class="img-circle avatar" src="index_files/defaultimage.png">
+                    </span> <b class="caret hidden-sm-only"></b>
                 </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-topbar-collapse">
-
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organization <b class="caret"></b></a>
-                        <ul class="dropdown-menu submenu list-inline organization">
-                            <li><a href="#">Organization</a>
-                            </li>
-                            <li><a href="#">Office Locations</a>
-                            </li>
-                            <li><a href="#">Service Areas</a>
-                            </li>
-                            <li><a href="#">Holiday List</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">Users</a>
-                    </li>
-                    <li><a href="#">Appt Type</a>
-                    </li>
-                    <li><a href="#">Notification</a>
-                    </li>
-                    <li><a href="#">Orders</a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
-                        <ul class="dropdown-menu submenu list-inline notes">
-                            <li><a href="#">Notes</a>
-                            </li>
-                            <li><a href="#">Flowsheets</a>
-                            </li>
-                            <li><a href="#">Charges</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">Reminder</a>
-                    </li>
-                    <li><a href="#">Patients</a>
-                    </li>
-                    <li><a href="#">CDS Rules</a>
-                    </li>
-
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a id="userProfile" href="#/myprofile" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="uname">hemant</span>
-                            <span>
-                                <img src="Title%20Page_files/photo.jpg" class="avatar img-circle">
-                            </span> 
-                            <b class="caret hidden-sm-only"></b>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#/edit-profile">
+                            <span class="pull-left">Edit Profile</span> <i class="pull-right fa fa-pencil"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#/edit-profile">
-                                    <span>Edit Profile</span> <i class="pull-right fa fa-pencil"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="badge bg-danger pull-right">3</span>Notifications</a>
-                            </li>
-                            <li>
-                                <a href="http://hkdemos.herokuapp.com/docs.html">
-                                    <span>Linkedin</span> <i class="pull-right fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a ng-click="logout()" href="">
-                                    <span>Logout</span> <i class="pull-right fa fa-power-off"></i>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="badge bg-danger pull-right">3</span>Notifications</a>
+                    </li>
+                    <li>
+                        <a href="http://hemsingh.herokuapp.com/src/docs.html">
+                            <span class="pull-left">Linkedin</span> <i class="pull-right fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="logout()" href="">
+                            <span class="pull-left">Logout</span> <i class="pull-right fa fa-power-off"></i>
+                        </a>
                     </li>
                 </ul>
-
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-
-    </nav>
-
-  <div id="site-wrapper">
-
-        <div id="site-canvas">
-
-            
-
-            <div id="site-menu">
-<ul id="sidebar">
-
-    <li class="hasChild">
-        <a href="#">
-            <i class="fa fa-dashboard"></i> 
-            <span>Organization</span>
-        </a>
-        <ul class="acc-menu">
-    <li ng-class="{active: $path() == '/create-cover'}">
-        <a href="#/create-cover"><i class="fa fa-plus-circle"></i> <span>fa fa-dashboard</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Office Locations</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Service Areas</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Holiday List</span></a>
-    </li>
+            </li>
         </ul>
-    </li>
-    <li class="hasChild">
-        <a href="#">
-            <span>Organization Test</span>
-        </a>
-        <ul class="acc-menu">
-    <li ng-class="{active: $path() == '/create-cover'}">
-        <a href="#/create-cover"> <span>fa fa-dashboard</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"> <span>Office Locations</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"> <span>Service Areas</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/addslide'}">
-        <a href="#/addslide"><span>Holiday List</span></a>
-    </li>
-        </ul>
-    </li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!--             <div class="collapse navbar-collapse navbar-topbar-collapse">
 
-    <li ng-class="{active: $path() == '/users'}">
-        <a href="#/users"><i class="fa fa-users"></i> <span>Users</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/myprofile'}">
-        <a href="#/myprofile"><i class="fa fa-user"></i> <span>Appt Type</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/edit-profile'}">
-        <a href="#/edit-profile"><i class="fa fa-pencil"></i> <span>Notification</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/manage-covers'}">
-        <a href="#/manage-covers"><i class="glyphicon glyphicon-edit"></i> <span>Orders</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Notes</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Flowsheets</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Charges</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Reminder</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><span>Patients</span></a>
-    </li>
-    <li ng-class="{active: $path() == '/contact'}">
-        <a href="#/contact"><span>CDS Rules</span></a>
-    </li>
-</ul>
-             </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Appt Type</a>
+                </li>
+                <li><a href="#">Notification</a>
+                </li>
+                <li><a href="#">Patients</a>
+                </li>
+                <li><a href="#">CDS Rules</a>
+                </li>
 
-            
+            </ul>
 
-    <div id="page-content-wrapper">
-       <div class="btnBaner ng-scope">
-         <i class="fa fa-bars toggle-nav"></i>
-        <button ng-click="handleSave()" ng-show="savePatient" class="btn bannerButton"><b><i class="ng-binding">Save</i></b>
-        </button>
-        <button ng-click="handleCancel()" ng-hide="patientList" class="btn bannerButton"><b><i class="ng-binding">Cancel</i></b>
-        </button>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a id="userProfile" href="#/myprofile" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="uname">hemant</span>
+                        <span>
+                            <img src="Title%20Page_files/photo.jpg" class="avatar img-circle">
+                        </span> 
+                        <b class="caret hidden-sm-only"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#/edit-profile">
+                                <span>Edit Profile</span> <i class="pull-right fa fa-pencil"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="badge bg-danger pull-right">3</span>Notifications</a>
+                        </li>
+                        <li>
+                            <a href="http://hkdemos.herokuapp.com/docs.html">
+                                <span>Linkedin</span> <i class="pull-right fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a ng-click="logout()" href="">
+                                <span>Logout</span> <i class="pull-right fa fa-power-off"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div> -->
+        <!-- /.navbar-collapse -->
     </div>
 
-    <div id="page-wrapper">
-        
-        <div class="panel panel-info" id="organization">
-            <div class="panel-heading">
+</nav>
+</div><!-- end ngIf: isAuthenticated() -->
+    <!-- ngIf: isAuthenticated() --><div class="ng-scope" id="site-wrapper" ng-class="{'show-nav': showSidebar}" ng-if="isAuthenticated()">
+     <div class="btnBaner">
+        <i class="fa fa-bars toggle-nav pull-left" ng-click="toggleMainSection()"></i>
+    </div>       
+        <div id="site-canvas">
+            <!-- ngIf: isAuthenticated() --><div class="ng-scope" ng-if="isAuthenticated()" id="site-menu">
+                <!-- ngInclude: 'templates/sidebar.html' --><div class="ng-scope" ng-include="'templates/sidebar.html'"><ul class="ng-scope" id="sidebar">
+    <!-- ngRepeat: menu in menus --><li class="ng-scope hasChild" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/organization'), hasChild: menu.submenu}">
+        <a href="#/organization"><span class="ng-binding">Organization</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/organization')}">
+                <a href="#/organization"><span class="ng-binding">Organization</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/office-locations')}">
+                <a href="#/office-locations"><span class="ng-binding">OfficeLocations</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/service-areas')}">
+                <a href="#/service-areas"><span class="ng-binding">ServiceAreas</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/holiday-list')}">
+                <a href="#/holiday-list"><span class="ng-binding">HolidayList</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope hasChild" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/users'), hasChild: menu.submenu}">
+        <a href="#/users"><span class="ng-binding">Users</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/users')}">
+                <a href="#/users"><span class="ng-binding">Users</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/user-roles')}">
+                <a href="#/user-roles"><span class="ng-binding">User Roles</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/user-calendar')}">
+                <a href="#/user-calendar"><span class="ng-binding">User Calendar</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/user-show-calendar')}">
+                <a href="#/user-show-calendar"><span class="ng-binding">Show User Calendar</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu --><li class="ng-scope" ng-repeat="sMenu in menu.submenu" ng-class="{active: isActive('/user-locations')}">
+                <a href="#/user-locations"><span class="ng-binding">User Locations</span></a>
+            </li><!-- end ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/appt-type'), hasChild: menu.submenu}">
+        <a href="#/appt-type"><span class="ng-binding">ApptType</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/notification'), hasChild: menu.submenu}">
+        <a href="#/notification"><span class="ng-binding">Notification</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/orders'), hasChild: menu.submenu}">
+        <a href="#/orders"><span class="ng-binding">Orders</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/notes'), hasChild: menu.submenu}">
+        <a href="#/notes"><span class="ng-binding">Notes</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/flowsheets'), hasChild: menu.submenu}">
+        <a href="#/flowsheets"><span class="ng-binding">Flowsheets</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/charges'), hasChild: menu.submenu}">
+        <a href="#/charges"><span class="ng-binding">Charges</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/reminder'), hasChild: menu.submenu}">
+        <a href="#/reminder"><span class="ng-binding">Reminder</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus --><li class="ng-scope" ng-repeat="menu in menus" ng-class="{active: !menu.submenu &amp;&amp; isActive('/cds-rules'), hasChild: menu.submenu}">
+        <a href="#/cds-rules"><span class="ng-binding">CdsRules</span></a>
+        <ul class="acc-menu">
+            <!-- ngRepeat: sMenu in menu.submenu -->
+        </ul>
+    </li><!-- end ngRepeat: menu in menus -->
+</ul>
+</div>
+            </div><!-- end ngIf: isAuthenticated() -->
 
-               
-                <h3 class="panel-title text-center">Organization</h3>
-            </div>
-            <div class="panel-body">
+            <div id="page-content-wrapper">
+                <!-- ngIf: isAuthenticated() --><!-- ngView:  --><div class="ng-scope" ng-if="isAuthenticated()" id="mainView" ng-view=""><div id="holidayList" class="panel panel-info ng-scope">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">New User
+            <img src="index_files/help-icon.png" alt="help" class="pull-right help-icon">
+        </h3>
 
-                <form action="" method="POST" class="form-horizontal" role="form">
+    </div>
+    <div class="panel-body">
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-4 control-label">Org. Name:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputEmail3" placeholder="Email" type="email">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Address Line 1:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Address line 1" type="password">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Adress Line 2:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">City:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">State:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Zip:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Phone 1:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                                <div class="col-sm-1 star">*</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Phone 2:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Fax:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-
-
-
+        <form action="" name="newUserForm" id="newUserForm" method="POST" class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Prefix:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Mr.</p>
                         </div>
-
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">NPI #:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">CLIA #:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">EIN #:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Medicare:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Medicaid:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">CHAMPUS:</label>
-                                <div class="col-sm-7">
-                                    <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label">Timezone:</label>
-                                <div class="col-sm-7">
-                                    <select name="" id="input" class="form-control" required="required">
-                                        <option selected="selected" value=""></option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-4 col-sm-7">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">Daylight Savings Time is observed
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">First Name:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Hemant</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Middle Name:</label>
+                        <div class="col-md-8">
+                           <p class="form-control-static">Kumar</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Last Name:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Singh</p>
                         </div>
                     </div>
 
-                </form>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Suffix:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Mss</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Gender:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Male</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Date of Birth:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">26 July, 2016</p>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="control-label col-md-4" for="prefix">SS No:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">4235435cvxv45</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group required">
+                        <label class="control-label col-md-4" for="prefix">Emp ID:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">hemant@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Emp Start Date:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">29 July, 2016</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Emp End Date:</label>
+                        <div class="col-md-8">
+                           <p class="form-control-static">29 July, 2020</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Primary Contact No:</label>
+                        <div class="col-md-5">
+                            <p class="form-control-static">+91 7799111008</p>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Secondary Contact No:</label>
+                        <div class="col-md-5">
+                            <p class="form-control-static">+001 7799111008</p>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Work Phone:</label>
+                        <div class="col-md-5">
+                            <p class="form-control-static">2393 234523234</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Mail ID:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">hemant@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Appt/Suite:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">5345345345</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Address Line 1:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Hemant Singh, 1-18, SN Colony, Begumpet, Hyderabad-229110</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Address Line 2:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Hemant Singh, 1-18, SN Colony, Begumpet, Hyderabad-229110, Hemant Singh, 1-18, SN Colony, Begumpet, Hyderabad-22911</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">City:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">State:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Andhra Pradesh</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Zip:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">454543</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <div class="form-group required">
+                        <label class="control-label col-md-4" for="prefix">User Name:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Ram</p>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="control-label col-md-4" for="prefix">Password:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">nono</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">NPI #:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">234546456456</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-4">
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">License #:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">4534ZSxZDsd4w5234</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">DFA #:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">sdwerrw 34523543</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="prefix">Role:</label>
+                        <div class="col-md-8">
+                            <p class="form-control-static">Admin</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+
+        <div class="btnGroup pull-right">
+            <button ng-click="childAction('addHoliday')" class="btn bannerButton"><b><i>Save</i></b>
+            </button>
+            <a href="#/users" class="btn bannerButton"><b><i>Cancel</i></b>
+            </a>
         </div>
     </div>
+</div>
+</div><!-- end ngIf: isAuthenticated() -->
+
+
+                <!-- ngIf: isAuthenticated() --><div ng-if="isAuthenticated()" class="footer ng-scope">
+                    <p class="text-center">Copyrights 2014, Icon Technical Group Inc.</p>
+                </div><!-- end ngIf: isAuthenticated() -->
+
+            </div>
+            <!-- #site-canvas -->
+
+        </div>
+    </div><!-- end ngIf: isAuthenticated() -->
+    <div class="ng-hide" ng-show="isViewLoading" id="loading"><i class="fa fa-spinner fa-spin"></i>Loading...</div>
+
+    <!-- build:js lib/app-name.min.js -->
+    <script type="text/javascript" src="index_files/jquery.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular-translate.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular-ui.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular-resource.js">
+    </script>
+    <script type="text/javascript" src="index_files/lodash.js">
+    </script>
+    <script type="text/javascript" src="index_files/moment.js">
+    </script>
+    <script type="text/javascript" src="index_files/fullcalendar.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular-route.js">
+    </script>
+    <script type="text/javascript" src="index_files/ui-bootstrap.js">
+    </script>
+    <script type="text/javascript" src="index_files/ui-bootstrap-tpls.js">
+    </script>
+    <script type="text/javascript" src="index_files/angular-cookies.js">
+    </script>
+    <script type="text/javascript" src="index_files/ng-grid.js">
+    </script>
+    <script type="text/javascript" src="index_files/checklist-model.js">
+    </script>
+    <script type="text/javascript" src="index_files/ng-grid-layout.js">
+    </script>
+    <script type="text/javascript" src="index_files/bootstrap.js">
+    </script>
+    <script type="text/javascript" src="index_files/commonServices.js"></script>
+    <script type="text/javascript" src="index_files/commonDirective.js">
+    </script>
+    <script type="text/javascript" src="index_files/URLModule.js">
+    </script>
+    <script type="text/javascript" src="index_files/toastr.js">
+    </script>
+    <!-- endbuild -->
+    <script type="text/javascript" src="index_files/require.js" data-main="js/main"></script>
 
 
 
-       </div><!-- #site-canvas -->
-
-    </div><!-- #site-wrapper> -->
-
-    <!-- jQuery -->
-    <script src="Title%20Page_files/jquery.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="Title%20Page_files/bootstrap.js"></script>
-
-
-<script>
-function toggleNav() {
-    if ($('#site-wrapper').hasClass('show-nav')) {
-        // Do things on Nav Close
-        $('#site-wrapper').removeClass('show-nav');
-    } else {
-        // Do things on Nav Open
-        $('#site-wrapper').addClass('show-nav');
-    }
-
-    //$('#site-wrapper').toggleClass('show-nav');
-}
-
-  $('.toggle-nav').click(function() {
-        // Calling a function in case you want to expand upon this.
-        toggleNav();
-    });;
-</script>
 </body></html>
