@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+var express = require('express')
+var app = express();
+var cool = require('cool-ascii-faces');
+
+app.set('port', (process.env.PORT || 5000))
+
+app.get('/', function(request, response) {
+  response.send(cool());
+});
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+});
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>server</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.javascript</scope> -->
+</snippet>
